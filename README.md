@@ -50,19 +50,3 @@ In Codex, describe the course materials you want to transform and ask it to star
 > Start the Dreaming Course Pipeline for the weekly slide decks in this folder.
 
 Keep your professor-provided slides and materials in the project folder. The plugin already carries its reference stories and pipeline contract; you do not need to supply them for every course.
-
-## Viewing this guide as a web page
-
-This repository also includes `index.html`, a centred reading view that renders this Markdown file as a document.
-
-To publish it with GitHub Pages:
-
-1. Open the repository’s **Settings** → **Pages**.
-2. Under **Build and deployment**, select **Deploy from a branch**.
-3. Select the `main` branch and the `/(root)` folder.
-4. Save. GitHub will provide a public Pages URL.
-
-## Source repositories
-
-- Marketplace: [arpandrv/dreaming-course-pipeline-marketplace](https://github.com/arpandrv/dreaming-course-pipeline-marketplace)
-- This guide: [arpandrv/dreaming-course-pipeline-installation-guide](https://github.com/arpandrv/dreaming-course-pipeline-installation-guide)
