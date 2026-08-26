@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dreaming Course Pipeline — Installation Guide</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #e9ecef;
+      color: #202124;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 48px 24px;
+      background:
+        radial-gradient(circle at top left, rgba(183, 148, 255, .18), transparent 33rem),
+        #e9ecef;
+    }
+    main {
+      width: min(100%, 8.5in);
+      min-height: 11in;
+      margin: 0 auto;
+      padding: .9in .82in;
+      background: #fff;
+      box-shadow: 0 12px 38px rgba(33, 37, 41, .17);
+      border-radius: 2px;
+    }
+    #content { line-height: 1.66; font-size: 16px; }
+    #content > :first-child { margin-top: 0; }
+    h1, h2, h3 { color: #28204a; line-height: 1.22; }
+    h1 { font-size: 2rem; margin: 0 0 1.1rem; padding-bottom: .75rem; border-bottom: 3px solid #8a69e8; }
+    h2 { font-size: 1.35rem; margin-top: 2rem; }
+    h3 { font-size: 1.1rem; margin-top: 1.5rem; }
+    p, ul, ol { margin: .8rem 0; }
+    li + li { margin-top: .35rem; }
+    a { color: #5c39bf; }
+    code {
+      padding: .14em .34em;
+      border-radius: 4px;
+      color: #45279b;
+      background: #f2effc;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: .88em;
+    }
+    pre {
+      overflow-x: auto;
+      margin: 1rem 0;
+      padding: 1rem 1.15rem;
+      border-radius: 8px;
+      color: #f7f5ff;
+      background: #242135;
+      line-height: 1.5;
+    }
+    pre code { padding: 0; color: inherit; background: transparent; font-size: .9rem; }
+    blockquote {
+      margin: 1rem 0;
+      padding: .6rem 1rem;
+      border-left: 4px solid #9a7cf0;
+      background: #f7f5ff;
+      color: #3d355b;
+    }
+    .status { color: #615b75; }
+    @media print {
+      body { padding: 0; background: #fff; }
+      main { width: auto; min-height: 0; padding: 0; box-shadow: none; }
+    }
+    @media (max-width: 640px) {
+      body { padding: 0; }
+      main { min-height: 100vh; padding: 34px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main aria-label="Installation guide document">
+    <article id="content" class="status">Loading installation guide…</article>
+  </main>
+  <script>
+    async function loadGuide() {
+      const target = document.getElementById("content");
+      try {
+        const response = await fetch("README.md", { cache: "no-store" });
+        if (!response.ok) throw new Error("README.md could not be loaded.");
+        const markdown = await response.text();
+        target.classList.remove("status");
+        target.innerHTML = marked.parse(markdown, { gfm: true, breaks: false });
+      } catch (error) {
+        target.innerHTML = "<h1>Installation guide unavailable</h1><p>Open this page through GitHub Pages or another web server so it can load <code>README.md</code>.</p>";
+      }
+    }
+    loadGuide();
+  </script>
+</body>
+</html>
